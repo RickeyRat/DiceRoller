@@ -1,0 +1,175 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BRiki's Dice Roller</title>
+	<!-- BOOTSTRAP STYLES-->
+    <link href="assets/css/bootstrap.css" rel="stylesheet" />	
+	<!-- WebHostingHub STYLES-->
+    <link href="assets/css/whhg.css" rel="stylesheet">
+    <!-- FONTAWESOME STYLES-->
+    <link href="assets/css/font-awesome.css" rel="stylesheet" />
+    <!-- CUSTOM STYLES-->
+    <link href="assets/css/custom.css" rel="stylesheet" />
+    <!-- GOOGLE FONTS-->
+   <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+</head>
+<body onLoad="setNames()">          
+    <div id="wrapper">
+         <div class="navbar navbar-inverse navbar-fixed-top">
+            <div class="adjust-nav">
+                <div class="navbar-header">				
+                    <a class="navbar-brand" href="#">
+						<h2>BRiki's Dice Roller</h2>
+                        <!--<img src="assets/img/logo.png" style="width: 300px; object-fit: contain"/>-->
+                    </a>
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>	
+                </div>
+            </div>
+        </div>
+        <!-- /. NAV TOP  -->
+        <nav class="navbar-default navbar-side" role="navigation">
+            <div class="sidebar-collapse">
+                <ul class="nav" id="main-menu"> 
+					<li class="active-link">
+                        <a href="index.html" ><i class="whhg icon-dieone"></i>Dice Roller</a>
+                    </li>  
+                    <li>
+                        <a href="diyw.html"><i class="whhg icon-dietwo"></i>Do-It-Your-Way   <span class="badge">New!</span></a>
+                    </li>
+                    <li>
+                        <a href="dnd.html"><i class="whhg icon-diethree"></i>DnD</a>
+                    </li>
+                    <li>
+                        <a href="fate.html"><i class="whhg icon-calcplus"></i>FATE</a>
+					</li>
+                    <li>
+                        <a href="fo.html"><i class="whhg icon-diefour"></i>Fallout</a>
+                    </li>
+					<li>
+                        <a href="sr.html"><i class="whhg icon-diefive"></i>Shadowrun</a>
+                    </li>
+                    <li>
+                        <a href="wod.html"><i class="whhg icon-diesix"></i>WoD</a>
+					</li>
+                    <li>
+                        <a href="link.html"><i class="whhg icon-linkalt"></i>Links</a>
+					</li>
+                </ul>
+			</div>
+        </nav>
+        <!-- /. NAV SIDE  -->
+        <div id="page-wrapper" >
+            <div id="page-inner">
+				<div class="row">
+					<div class="col-md-12">
+						<div id="dies" class="dice">0</div>
+					</div>
+				</div> 
+				<div class="row">
+					<div class="col-md-12">
+						<div class="indent">
+							<button id="d4" class="btn blue" onclick="rollDice(4)">
+								<span class="full-txt">Roll D4</span>
+								<span class="short-txt">D4</span>
+							</button>
+							<button id="d6" class="btn green" onclick="rollDice(6)">
+								<span class="full-txt">Roll D6</span>
+								<span class="short-txt">D6</span>
+							</button>
+							<button id="2d6" class="btn yellow" onclick="rollDice2d6()">
+								<span class="full-txt">Roll 2D6</span>
+								<span class="short-txt">2D6</span>
+							</button>
+							<button id="d8" class="btn purple" onclick="rollDice(8)">
+								<span class="full-txt">Roll D8</span>
+								<span class="short-txt">D8</span>
+							</button>
+							<button id="d10" class="btn orange" onclick="rollDice(10)">
+								<span class="full-txt">Roll D10</span>
+								<span class="short-txt">D10</span>
+							</button>
+							<button id="d12" class="btn red" onclick="rollDice(12)">
+								<span class="full-txt">Roll D12</span>
+								<span class="short-txt">D12</span>
+							</button>
+							<button id="d20" class="btn purple" onclick="rollDice(20)">
+								<span class="full-txt">Roll D20</span>
+								<span class="short-txt">D20</span>
+							</button>
+							<button id="adv" class="btn red" onclick="rollDice2d20(true)">
+								<span class="full-txt">Advantage</span>
+								<span class="short-txt">ADV</span>
+							</button>
+							<button id="dis" class="btn green" onclick="rollDice2d20(false)">
+								<span class="full-txt">Disadvantage</span>
+								<span class="short-txt">DIS</span>
+							</button>
+							<button id="d100" class="btn yellow" onclick="rollDice(100)">
+								<span class="full-txt">Roll D100</span>
+								<span class="short-txt">D100</span>
+							</button>
+							<button id="4d6" class="btn blue" onclick="rollDice4d6()">
+								<span class="full-txt">Roll 4d6</span>
+								<span class="short-txt">4D6</span>
+							</button>
+							<!--<button id="fate" class="btn orange" onclick="Fate()">
+								<span class="full-txt">Fate</span>
+								<span class="short-txt">FATE</span>
+							</button>-->
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-12">
+						<p id="status"> </p>
+					</div>
+				</div>
+				<div class="row">
+                    <div class="col-lg-6 col-md-6">
+						<h4>Previous Rolls</h4>
+                        <div class="table-responsive">
+                            <table id="prev_rolls_t" class="table">
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th> Roll </th>
+                                        <th>Dice Type</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>				
+				</div>
+			</div>
+        <!-- /. PAGE INNER  -->
+		</div>
+    <!-- /. PAGE WRAPPER  -->
+	</div>
+    <div class="footer">  
+		<div class="row">
+			<div class="col-lg-12" >
+				&copy;  2017 BRiki | Design by: <a href="http://binarytheme.com" style="color:#fff;"  target="_blank">www.binarytheme.com</a> 
+			</div>
+        </div>
+	</div> 
+    <!-- /. WRAPPER  -->
+	
+    <!-- SCRIPTS -AT THE BOTOM TO REDUCE THE LOAD TIME-->
+    <!-- JQUERY SCRIPTS -->
+    <script src="assets/js/jquery-1.10.2.js"></script>
+    <!-- BOOTSTRAP SCRIPTS -->
+    <script src="assets/js/bootstrap.min.js"></script>
+    <!-- CUSTOM SCRIPTS -->
+    <script src="assets/js/custom.js"></script>  
+    <!-- Roller SCRIPT -->
+    <script src="assets/js/roller.js"></script>	
+</body>
+</html>

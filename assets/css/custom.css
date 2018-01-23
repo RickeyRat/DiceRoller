@@ -1,0 +1,346 @@
+/*==============================================
+    GENERAL  STYLES    
+    =============================================*/
+body {
+    font-family: 'Open Sans', sans-serif;
+    /*line-height: 30px;*/
+	background-color:#2C3539;
+    font-size: 2em;
+}
+h2{
+	font-family: 'Open Sans';
+	font-weight: bold;
+	color: #2C3539;/*#F87217;*/
+	padding-left: 0.3em;
+}
+h3 {
+	font-size: 2em;
+	color: #666666;
+	text-align: left;
+	padding-left: 0.3em;
+}
+h4 {
+	font-size: 1.5em;
+	color: #666666;
+	text-align: left;
+	padding-left: 0.3em;
+}
+p {
+	font-size: 1em;
+	text-align: left;
+	color: #2C3539;
+	padding: 0.3em 1em;
+}
+input[type=text], select {
+	text-align: center; 
+	font-size: 1em;
+    padding: 0.4em 0.5em;
+    margin: 0.5em 0;
+    display: inline-block;
+    border: 0.05em solid #ccc;
+    border-radius: 0.3em;
+    box-sizing: border-box;
+}
+div.dice{
+	font-size: 2em;
+	width: 2.5em;
+	background:#F5F5F5;
+	border:#999 0.05em solid;
+	border-radius: 0.5em;
+	padding: 0.5em;
+	margin: 0.3em 0.5em;
+	text-align: center; 
+	position: relative;
+	display: inline-block;
+	/*float: left;*/
+	/*vertical-align: center;*/
+}
+div.dice_mult{
+	font-size: 2em;
+	width: 3em;
+	background:#F5F5F5;
+	border:#999 0.05em solid;
+	border-radius: 0.5em;
+	padding: 0.5em;
+	margin: 0.3em 0.5em;
+	text-align: center;
+	position: relative;
+	display: inline-block;
+	/*float: left;*/
+	/*vertical-align: center;*/
+}
+div.butcon {	
+	padding: 0.5em 1em;
+    margin:0 auto;
+	text-align: center;
+}
+div.rpg {		
+	padding: 0.5em 0.3em;
+}
+div.dnd {		
+	padding: 0.5em 0.1em;
+}
+
+div.diyw{	
+	margin: 0.3em;
+	padding: 0.3em 1em;
+	text-align: center;
+}
+div.links{	
+	font-size: 1em;
+	text-align: left;
+	color: #2C3539;
+	padding: 0.3em 1em;
+}
+
+/*==============================================
+    MEDIA QUERIES     
+    =============================================*/ 
+/* Hide short text by default (resolution > 1200px)*/
+.short-txt { display: none; }
+@media (max-width:768px) {	
+    .short-txt { display: inline-block; }
+    .full-txt { display: none; }
+    #page-inner{
+        text-align: center;
+		/*vertical-align:middle;*/
+    }
+	div.dice_mult{
+		float: none;
+	}
+	div.rpg{
+		font-size: 6vw;
+	}	
+	div.dnd{
+		font-size: 5vw;
+	}
+}
+
+@media(min-width:768px) {
+    #page-wrapper{
+	    margin: 0 0 0 260px;
+        padding: 15px 30px;
+        min-height: 1050px;		
+    }	
+	.navbar-side {
+        z-index: 1;
+        position: absolute;
+        width: 260px;       
+    } 
+	div.diyw{
+		float: left;
+		width: 230px;
+	}
+	div.indent{
+		margin-left: 1em;  
+	}
+}
+
+/*=============================================================
+    Authour URI: www.binarycart.com
+    License: Commons Attribution 3.0
+
+    http://creativecommons.org/licenses/by/3.0/
+
+    100% To use For Personal And Commercial Use.
+    IN EXCHANGE JUST GIVE US CREDITS AND TELL YOUR FRIENDS ABOUT US
+   
+    ========================================================  */
+
+/*==============================================
+    MENU STYLES    
+    =============================================*/
+#wrapper {
+    width: 100%;
+    margin-top: 3em;
+}
+#page-wrapper {
+    padding: 1em 1em;
+    min-height: 600px;
+    background: #0C090A   
+}
+#page-inner {
+    width:100%;
+    margin:0.5em 1em 0.5em 0em;
+    background-color:#FFD090!important;
+    padding:1em;
+    min-height:1050px;
+}
+.pad-top {
+    padding-top:1em;
+}	
+
+.sidebar-collapse .nav {
+	padding:0;
+    padding-top:3em;
+}
+.sidebar-collapse > .nav > li > a {
+	padding:0.7em 0.7em;
+    color: #FFA62F;
+	font-weight: 900;
+	font-size: 1em;
+}
+.sidebar-collapse > .nav > li {
+	border-bottom:1px solid #e1e1e1;
+}
+.sidebar-collapse .nav > li > a:hover,
+.sidebar-collapse .nav > li > a:focus {	
+	background:#0C090A;
+	outline:0;
+}
+.navbar-side {
+	border:none;
+	background-color: #2C3539;
+}
+.navbar-inverse {
+	background-color: #FFA62F;
+	border-color: #F0F0F0;
+	min-height: 80px;
+}
+.nav > li > a > i {
+    margin-right:10px;
+}
+.active-link {
+    background-color:#0C090A
+}
+    
+/*==============================================
+    DASHBOARD STYLES    
+    =============================================*/
+.div-square {
+    padding:5px;
+    border:3px double #e1e1e1;
+    -webkit-border-radius:8px;
+	-moz-border-radius:8px;
+    border-radius:8px;
+    margin:5px;
+}
+.div-square> a,.div-square> a:hover {
+    color:#808080;
+    text-decoration:none;
+}
+
+/*==============================================
+    FOOTER STYLES     
+    =============================================*/
+.footer {
+    background-color:#FFA62F;
+    width:100%;
+    color:#fff;
+    padding:1em 2em 1em 2em;
+    padding-left:1em;
+}
+.footer > a, .footer>a:hover {       
+	color:#fff;
+}
+
+/*==============================================
+    Copyright 2014 BenAGue http://www.benague.ca
+    =============================================*/
+#buttons {
+  padding: 1em 3em;
+  text-align: center;
+}
+.btn {
+  border-radius: 0.3em;
+  padding: 0.3em 0.2em;
+  font-size: 1em;
+  text-decoration: none;
+  margin: 0.1em;
+  color: #fff;
+  position: relative;
+  display: inline-block;
+}
+.btn:active {
+  transform: translate(0em, 0.05em);
+  -webkit-transform: translate(0em, 0.05em);
+}
+
+.blue {
+  background-color: #55acee;
+  box-shadow: 0em 0em 0em 0em #3C93D5;
+}
+.blue:hover {
+  background-color: #6FC6FF;
+}
+
+.green {
+  background-color: #2ecc71;
+  box-shadow: 0em 0em 0em 0em #15B358;
+}
+.green:hover {
+  background-color: #48E68B;
+}
+
+.red {
+  background-color: #e74c3c;
+  box-shadow: 0em 0em 0em 0em #CE3323;
+}
+.red:hover {
+  background-color: #FF6656;
+}
+
+.purple {
+  background-color: #9b59b6;
+  box-shadow: 0em 0em 0em 0em #82409D;
+}
+.purple:hover {
+  background-color: #B573D0;
+}
+
+.orange {
+  background-color: #e67e22;
+  box-shadow: 0em 0em 0em 0em #CD6509;
+}
+.orange:hover {
+  background-color: #FF983C;
+}
+
+.yellow {
+  background-color: #f1c40f;
+  box-shadow: 0em 0em 0em 0em #D8AB00;
+}
+.yellow:hover {
+  background-color: #FFDE29;
+}
+/*==============================================
+    Copyright 2012 Stephen Morley http://code.stephenmorley.org/html-and-css/styling-checkboxes-and-radio-buttons
+    =============================================*/
+input[type=radio]:not(old){
+  width     : 2em;
+  margin    : 0;
+  padding   : 0;
+  font-size : 1em;
+  opacity   : 0;
+}
+input[type=radio]:not(old) + label{
+  display      : inline-block;
+  margin-left  : -2em;
+  line-height  : 2em;
+}
+input[type=radio]:not(old) + label > span{
+  display          : inline-block;
+  width            : 1.5em;
+  height           : 1.5em;
+  margin           : 0.25em 0.5em 0.25em 0.25em;
+  border           : 0.0625em solid rgb(192,192,192);
+  border-radius    : 0.25em;
+  background       : #e6e6e6;
+  vertical-align   : bottom;
+}
+input[type=radio]:not(old):checked +  label > span > span{
+  display          : block;
+  width            : 1.1em;
+  height           : 1.1em;
+  margin           : 0.15em;
+  border           : 0.0625em solid rgb(115,153,77);
+  border-radius    : 0.125em;
+}
+.green:not(old):checked +  label > span > span{
+  background       : #2ecc71;
+}
+.red:not(old):checked +  label > span > span{
+  background       : #e74c3c;
+}
+
+
