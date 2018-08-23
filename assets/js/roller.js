@@ -463,13 +463,13 @@ function getQuResult(qubits){
 		.result;
 }
 
+function dec2bin(dec){
+    return (dec >>> 0).toString(2);
+}
+
 // Returns quantum random number between 1 and the number
 function getRandom(num){
-	var qubits = '';
-	var secroot = Math.pow(num, 1/2);
-	for (i = 0; i < secroot; i++) {
-		qubits += '0';
-	}
+	var qubits = dec2bin(num);
 	var res = 0;
 	do {
 		res = getQuResult(qubits) + 1;
