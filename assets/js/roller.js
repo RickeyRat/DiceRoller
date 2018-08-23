@@ -1,11 +1,11 @@
 /*==============================================
     DICE ROLLER FUNCTIONS     
-    =============================================*/ 
+    =============================================*/ 	
 function rollDice(dicetype){
     var dies = document.getElementById("dies");
     var status = document.getElementById("status");
 	var prev = document.getElementById("prev_rolls");
-    var d1 = Math.floor(Math.random() * dicetype) + 1;
+    var d1 = getRandom(dicetype);
 	if(dies.innerHTML == d1){
 		status.innerHTML ="Rolled the same!";
 	}
@@ -30,8 +30,8 @@ function rollDice2d6(){
     var status = document.getElementById("status");
 	var prev = document.getElementById("prev_rolls");
     var dices = new Array();
-	dices[0] = Math.floor(Math.random() * 6) + 1; 
-	dices[1] = Math.floor(Math.random() * 6) + 1; 
+	dices[0] = getRandom(6); 
+	dices[1] = getRandom(6); 
     dices.sort(function(a,b){return b-a});
 	if(dies.innerHTML == dices[0]+dices[1]){
 		status.innerHTML ="Rolled the same!";
@@ -53,8 +53,8 @@ function rollDice2d20(advantage){
 	var prev = document.getElementById("prev_rolls");
 	var d1 = 0;
     var dices = new Array();
-	dices[0] = Math.floor(Math.random() * 20) + 1; 
-	dices[1] = Math.floor(Math.random() * 20) + 1; 
+	dices[0] = getRandom(20); 
+	dices[1] = getRandom(20); 
     dices.sort(function(a,b){return b-a});
 	if(advantage){
 		d1 = dices[0];
@@ -84,10 +84,10 @@ function rollDice4d6(){
     var status = document.getElementById("status");
 	var prev = document.getElementById("prev_rolls");
     var dices = new Array();
-	dices[0] = Math.floor(Math.random() * 6) + 1; 
-	dices[1] = Math.floor(Math.random() * 6) + 1; 
-	dices[2] = Math.floor(Math.random() * 6) + 1; 
-	dices[3] = Math.floor(Math.random() * 6) + 1;
+	dices[0] = getRandom(6); 
+	dices[1] = getRandom(6); 
+	dices[2] = getRandom(6); 
+	dices[3] = getRandom(6);
     dices.sort(function(a,b){return b-a});
     dies.innerHTML = dices[0]+dices[1]+dices[2];
     status.innerHTML = " [ "+dices[0]+" |  "+dices[1]+" | "+dices[2]+" | "+dices[3]+" ]";
@@ -147,10 +147,10 @@ function Fate(){
     var status = document.getElementById("status");
 	var prev = document.getElementById("prev_rolls");
     var dices = new Array();
-	dices[0] = Math.floor(Math.random() * 3) - 1;
-	dices[1] = Math.floor(Math.random() * 3) - 1;
-	dices[2] = Math.floor(Math.random() * 3) - 1;
-	dices[3] = Math.floor(Math.random() * 3) - 1;
+	dices[0] = getRandom(3) - 2;
+	dices[1] = getRandom(3) - 2;
+	dices[2] = getRandom(3) - 2;
+	dices[3] = getRandom(3) - 2;
 	dices.sort(function(a,b){return b-a});
     dies.innerHTML = dices[0]+dices[1]+dices[2]+dices[3];
     status.innerHTML = FateParse(dices[0])+" "+FateParse(dices[1])+" "+FateParse(dices[2])+" "+FateParse(dices[3]);
@@ -200,7 +200,7 @@ function rollDices(){
     var total = 0;
     for(var i = 0;i < r_n; i++){
 		for(var j= 0; j< d_n; j++){
-			total += Math.floor(Math.random() * d_t) + 1;
+			total += getRandom(d_t);
 		}
         total += d_m;	
     } 
@@ -227,10 +227,13 @@ function rollDicesMobile(){
 	var txt = "["
 	for(var j= 0; j< d_n; j++){
 		if(d_t > 0) {
-			current_roll = Math.floor(Math.random() * d_t) + 1;
+			current_roll = getRandom(d_t);
+		}
+		else if(d_t == 0){
+			current_roll = 0;
 		}
 		else {
-			current_roll = Math.floor(Math.random() * d_t);
+			current_roll = -getRandom(-d_t);
 		}
 		total += current_roll;
 		txt += current_roll+"; "; 
@@ -287,8 +290,8 @@ function Dnd(){
 		}
 		else{
 			var dices = new Array();
-			dices[0] = Math.floor(Math.random() * 20) + 1; 
-			dices[1] = Math.floor(Math.random() * 20) + 1; 
+			dices[0] = getRandom(20); 
+			dices[1] = getRandom(20);
 			dices.sort(function(a,b){return b-a});
 			if(document.getElementById("dnd_adv").checked){
 				current_roll = dices[0];
@@ -316,7 +319,7 @@ function Brust(){
     var siker = 0;
     var balsiker = 0;
     for(var i = 0;i < b; i++){
-		current_roll = Math.floor(Math.random() * 100) + 1;
+		current_roll = getRandom(100);;
        	status2.innerHTML += current_roll+"; " 
 		if(current_roll <= hatar){
 			siker++;
@@ -362,7 +365,7 @@ function SR_3e(){
     for(var i = 0;i < b; i++){
 		total = 0;
 		do{
-			current_roll = Math.floor(Math.random() * 6) + 1;
+			current_roll = getRandom(6);
 			total+=current_roll;
 		}
 		while(current_roll == 6)
@@ -392,7 +395,7 @@ function SR_5e(){
     var balsiker = 0;
     var total = 0;
     for(var i = 0;i < b; i++){
-		current_roll = Math.floor(Math.random() * 6) + 1;
+		current_roll = getRandom(6);
 		if(current_roll >= csz){
 			siker++;
 		}
@@ -438,7 +441,7 @@ function Vampire(){
 		csz = 10;
 	}	
     for(var i = 0;i < b; i++){
-		current_roll = Math.floor(Math.random() * 10) + 1;
+		current_roll = getRandom(10);
 		if(current_roll >= csz){
 			siker++;
 		}
@@ -451,4 +454,25 @@ function Vampire(){
     if(balsiker > b-1){
 		status_vp2.innerHTML = "Total failure!";
 	}    	
+}
+
+function getQuResult(qubits){
+	return jsqubits(qubits)
+		.hadamard(jsqubits.ALL)
+		.measure(jsqubits.ALL)
+		.result;
+}
+
+// Returns quantum random number between 1 and the number
+function getRandom(num){
+	var qubits = '';
+	var secroot = Math.pow(num, 1/2);
+	for (i = 0; i < secroot; i++) {
+		qubits += '0';
+	}
+	var res = 0;
+	do {
+		res = getQuResult(qubits) + 1;
+	} while (res > num)
+	return res
 }
